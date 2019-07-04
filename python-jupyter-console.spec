@@ -26,7 +26,7 @@ Summary:        %{summary}
 BuildRequires:  python3dist(jupyter-client)
 BuildRequires:  python3dist(ipython)
 BuildRequires:  python3dist(ipykernel)
-BuildRequires:  (python3dist(prompt-toolkit) >= 2.0.0 with python3dist(prompt-toolkit) < 2.1.0)
+BuildRequires:  (python3dist(prompt-toolkit) >= 2 with python3dist(prompt-toolkit) < 2.1)
 BuildRequires:  python3dist(pygments)
 BuildRequires:  python3dist(nose)
 BuildRequires:  python3dist(pyzmq)
