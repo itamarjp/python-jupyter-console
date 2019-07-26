@@ -3,7 +3,7 @@
 
 Name:           python-%{srcname}
 Version:        6.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Jupyter terminal console
 
 License:        BSD
@@ -85,5 +85,8 @@ PYTHONPATH=%{buildroot}%{python3_sitelib} \
 
 
 %changelog
+* Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 6.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Thu May 09 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 6.0.0-1
 - Initial package.
