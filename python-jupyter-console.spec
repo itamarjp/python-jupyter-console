@@ -2,8 +2,8 @@
 %global srcname_ jupyter_console
 
 Name:           python-%{srcname}
-Version:        6.0.0
-Release:        4%{?dist}
+Version:        6.1.0
+Release:        1%{?dist}
 Summary:        Jupyter terminal console
 
 License:        BSD
@@ -53,6 +53,9 @@ Documentation for jupyter-console
 %prep
 %autosetup -n %{srcname_}-%{version}
 
+# setuptools is used, but only implicitly through pip, not explicitly.
+sed -i 's/distutils.core/setuptools/g' setup.py
+
 
 %build
 %py3_build
@@ -85,6 +88,9 @@ PYTHONPATH=%{buildroot}%{python3_sitelib} \
 
 
 %changelog
+* Tue Jan 28 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 6.1.0-1
+- Update to latest version
+
 * Thu Oct 03 2019 Miro Hrončok <mhroncok@redhat.com> - 6.0.0-4
 - Rebuilt for Python 3.8.0rc1 (#1748018)
 
