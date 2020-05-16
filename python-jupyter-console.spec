@@ -3,7 +3,7 @@
 
 Name:           python-%{srcname}
 Version:        6.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Jupyter terminal console
 
 License:        BSD
@@ -26,7 +26,7 @@ Summary:        %{summary}
 BuildRequires:  python3dist(jupyter-client)
 BuildRequires:  python3dist(ipython)
 BuildRequires:  python3dist(ipykernel)
-BuildRequires:  (python3dist(prompt-toolkit) >= 2 with python3dist(prompt-toolkit) < 2.1)
+BuildRequires:  python3dist(prompt-toolkit) >= 2
 BuildRequires:  python3dist(pygments)
 BuildRequires:  python3dist(nose)
 BuildRequires:  python3dist(pyzmq)
@@ -71,8 +71,9 @@ rm -rf html/.{doctrees,buildinfo}
 
 
 %check
+# https://github.com/jupyter/jupyter_console/issues/214#issuecomment-629567456
 PYTHONPATH=%{buildroot}%{python3_sitelib} \
-    nosetests-3 %{srcname_}
+    nosetests-3 --nocapture %{srcname_}
 
 
 %files -n python3-%{srcname}
@@ -88,6 +89,9 @@ PYTHONPATH=%{buildroot}%{python3_sitelib} \
 
 
 %changelog
+* Sat May 16 2020 Itamar Reis Peixoto <itamar@ispbrasil.com.br> - 6.1.0-2
+- Change spec to build with prompt_toolkit 3.0.5
+
 * Tue Jan 28 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 6.1.0-1
 - Update to latest version
 
